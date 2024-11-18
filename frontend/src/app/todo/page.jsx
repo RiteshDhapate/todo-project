@@ -266,7 +266,15 @@ export default function Todo() {
 
             <CardContent className="p-4">
               <div className="space-y-3">
-                {tasks[listId].map((task) => (
+                {tasks[listId].sort((first,second)=>{
+                  if(first.updatedAt>secod.updatedAt){
+                    return 1;
+                  }else if(first.updatedAt<second.updatedAt){
+                    return 2;
+                  }else{
+                    return 0;
+                  }
+                }).map((task) => (
                   <div
                     key={task._id}
                     className="group/item relative p-4 rounded-xl border border-white/10 bg-white/5 hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300"
